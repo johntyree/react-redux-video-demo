@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { updateTerm } from '../actions';
+
+import youtube from '../apis/youtube';
+import { selectVideo, updateTerm, updateVideos } from '../actions';
 
 class SearchBar extends React.Component {
     constructor(props) {
@@ -19,9 +21,22 @@ class SearchBar extends React.Component {
 
     onFormSubmit = (event) => {
       event.preventDefault();
-      this.props.onFormSubmit();
+      this.submitSearch();
       this.searchInput.current.select();
     }
+
+    submitSearch = async () => {
+      const response = await youtube.get('/search', {
+        params: {
+          q: this.props.term
+        }
+      });
+
+      this.props.updateVideos(response.data.items);
+      // Take first video from the results
+      this.props.selectVideo(response.data.items[0]);
+    };
+
 
     render() {
         return (
@@ -48,7 +63,7 @@ const mapStateToProps = ({ term }) => {
 
 export default connect(
   mapStateToProps,
-  { updateTerm },
+  { selectVideo, updateTerm, updateVideos },
   null,
   { forwardRef: true }
 )(SearchBar);
