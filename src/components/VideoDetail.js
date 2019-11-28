@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 const VideoDetail = ({ video }) => {
   if (!video) { return <div>Loading ...</div>; };
@@ -16,4 +17,8 @@ const VideoDetail = ({ video }) => {
   );
 };
 
-export default VideoDetail;
+const mapStateToProps = ({ selectedVideo }) => {
+  return { "video": selectedVideo };
+};
+
+export default connect(mapStateToProps)(VideoDetail);
