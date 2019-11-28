@@ -2,6 +2,7 @@
   "name": "react-redux-video-demo",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://johntyree.github.io/react-redux-video-demo",
   "dependencies": {
     "axios": "^0.18.1",
     "react": "^16.12.0",
