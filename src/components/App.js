@@ -1,4 +1,6 @@
 import React from 'react';
+import { connect } from 'react-redux';
+
 import SearchBar from './SearchBar';
 import youtube from '../apis/youtube';
 import VideoList from './VideoList';
@@ -8,7 +10,6 @@ class App extends React.Component {
 
   constructor(props) {
     super(props);
-    this.defaultQuery = 'bananas';
     this.state = {
       videos: [],
       selectedVideo: null,
@@ -18,13 +19,13 @@ class App extends React.Component {
 
   componentDidMount() {
     this.searchBar.current.focus();
-    this.onTermSubmit(this.defaultQuery);
+    this.submitSearch();
   }
 
-  onTermSubmit = async term => {
+  submitSearch = async () => {
     const response = await youtube.get('/search', {
       params: {
-        q: term
+        q: this.props.term
       }
     });
 
@@ -44,8 +45,7 @@ class App extends React.Component {
       return (
           <div className="ui container">
             <SearchBar ref={this.searchBar}
-                       defaultQuery={this.defaultQuery}
-                       onFormSubmit={this.onTermSubmit}/>
+                       onFormSubmit={this.submitSearch}/>
             <div className="ui grid">
               <div className="ui row">
                 <div className="eleven wide column">
@@ -62,4 +62,8 @@ class App extends React.Component {
   }
 }
 
-export default App;
+const mapStateToProps = state => { return state; }
+
+export default connect(
+  mapStateToProps,
+)(App);

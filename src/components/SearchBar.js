@@ -1,10 +1,11 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { updateTerm } from '../actions';
 
 class SearchBar extends React.Component {
     constructor(props) {
       super(props);
       this.searchInput = React.createRef();
-      this.state = { term: this.props.defaultQuery };
     }
 
     focus = () => {
@@ -13,12 +14,12 @@ class SearchBar extends React.Component {
     }
 
     onInputChange = (event) => {
-        this.setState({ term: event.target.value });
+      this.props.updateTerm(event.target.value);
     };
 
     onFormSubmit = (event) => {
       event.preventDefault();
-      this.props.onFormSubmit(this.state.term);
+      this.props.onFormSubmit();
       this.searchInput.current.select();
     }
 
@@ -31,7 +32,7 @@ class SearchBar extends React.Component {
                       <input
                          ref={this.searchInput}
                          type="text"
-                         value={this.state.term}
+                         value={this.props.term}
                          onChange={this.onInputChange}
                       />
                   </div>
@@ -41,4 +42,13 @@ class SearchBar extends React.Component {
     }
 }
 
-export default SearchBar;
+const mapStateToProps = ({ term }) => {
+  return { term };
+};
+
+export default connect(
+  mapStateToProps,
+  { updateTerm },
+  null,
+  { forwardRef: true }
+)(SearchBar);
