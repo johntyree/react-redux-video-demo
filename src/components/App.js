@@ -5,15 +5,12 @@ import SearchBar from './SearchBar';
 import youtube from '../apis/youtube';
 import VideoList from './VideoList';
 import VideoDetail from './VideoDetail';
-import { selectVideo } from '../actions';
+import { selectVideo, updateVideos } from '../actions';
 
 class App extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = {
-      videos: [],
-    };
     this.searchBar = React.createRef();
   }
 
@@ -29,10 +26,7 @@ class App extends React.Component {
       }
     });
 
-    this.setState({
-      videos: response.data.items,
-    });
-
+    this.props.updateVideos(response.data.items);
     // Take first video from the results
     this.props.selectVideo(response.data.items[0]);
 
@@ -49,7 +43,7 @@ class App extends React.Component {
                   <VideoDetail />
                 </div>
                 <div className="five wide column">
-                  <VideoList videos={this.state.videos}/>
+                  <VideoList />
                 </div>
               </div>
             </div>
@@ -62,5 +56,5 @@ const mapStateToProps = state => { return state; }
 
 export default connect(
   mapStateToProps,
-  { selectVideo },
+  { selectVideo, updateVideos },
 )(App);

@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 import VideoItem from './VideoItem';
 
@@ -13,4 +14,6 @@ const VideoList = ({ videos }) => {
   );
 };
 
-export default VideoList;
+const mapStateToProps = ({ videos }) => { return { videos }; };
+
+export default connect(mapStateToProps)(VideoList);
