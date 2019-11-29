@@ -13,8 +13,7 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    this.searchBar.current.focus();
-    this.searchBar.current.submitSearch();
+    this.searchBar.current.submit();
   }
 
   render() {
