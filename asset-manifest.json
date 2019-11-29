@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/react-redux-video-demo/static/css/main.4a966e5b.chunk.css",
-    "main.js": "/react-redux-video-demo/static/js/main.5d535c86.chunk.js",
-    "main.js.map": "/react-redux-video-demo/static/js/main.5d535c86.chunk.js.map",
+    "main.js": "/react-redux-video-demo/static/js/main.10c3daf3.chunk.js",
+    "main.js.map": "/react-redux-video-demo/static/js/main.10c3daf3.chunk.js.map",
     "runtime-main.js": "/react-redux-video-demo/static/js/runtime-main.d86b0838.js",
     "runtime-main.js.map": "/react-redux-video-demo/static/js/runtime-main.d86b0838.js.map",
     "static/js/2.92fa73de.chunk.js": "/react-redux-video-demo/static/js/2.92fa73de.chunk.js",
     "static/js/2.92fa73de.chunk.js.map": "/react-redux-video-demo/static/js/2.92fa73de.chunk.js.map",
     "index.html": "/react-redux-video-demo/index.html",
-    "precache-manifest.ad38c4ee849602140d9f4de7e74431a8.js": "/react-redux-video-demo/precache-manifest.ad38c4ee849602140d9f4de7e74431a8.js",
+    "precache-manifest.d32977bd562e5297377569eff0c84311.js": "/react-redux-video-demo/precache-manifest.d32977bd562e5297377569eff0c84311.js",
     "service-worker.js": "/react-redux-video-demo/service-worker.js",
     "static/css/main.4a966e5b.chunk.css.map": "/react-redux-video-demo/static/css/main.4a966e5b.chunk.css.map"
   },
@@ -16,6 +16,6 @@
     "static/js/runtime-main.d86b0838.js",
     "static/js/2.92fa73de.chunk.js",
     "static/css/main.4a966e5b.chunk.css",
-    "static/js/main.5d535c86.chunk.js"
+    "static/js/main.10c3daf3.chunk.js"
   ]
 }
