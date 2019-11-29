@@ -4,6 +4,7 @@ export const VIDEOS_UPDATED = 'VIDEOS_UPDATED';
 export const VIDEO_SELECTED = 'VIDEO_SELECTED';
 export const TERM_UPDATED = 'TERM_UPDATED';
 
+
 export const submitSearch = term => async dispatch => {
   const response = await youtube.get('/search', {
     params: { q: term }
@@ -22,12 +23,14 @@ export const updateVideos = videos => {
   };
 };
 
+
 export const selectVideo = video => {
   return {
     type: VIDEO_SELECTED,
     payload: video
   };
 };
+
 
 export const updateTerm = term => {
   return {

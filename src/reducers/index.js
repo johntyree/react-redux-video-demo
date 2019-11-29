@@ -9,12 +9,14 @@ const videosReducer = (videos = [], action) => {
   return videos;
 };
 
+
 const selectedVideoReducer = (video = null, action) => {
   if (action.type === VIDEO_SELECTED) {
-    return action.payload
+    return action.payload;
   }
   return video;
 }
+
 
 const termReducer = (term = null, action) => {
   if (action.type === TERM_UPDATED) {
@@ -22,6 +24,7 @@ const termReducer = (term = null, action) => {
   }
   return term;
 }
+
 
 export default combineReducers({
   selectedVideo: selectedVideoReducer,
