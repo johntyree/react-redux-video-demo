@@ -9,7 +9,18 @@ import reducers from './reducers';
 
 const initialState = { term: 'bananas' };
 
-const middleware = applyMiddleware(thunk);
+var action_count = 0;
+
+const logger = ({ getState }) => next => action => {
+  const ac = action_count;
+  action_count += 1;
+  console.log('START', ac, action);
+  const ret = next(action);
+  console.log('END  ', ac, getState());
+  return ret;
+}
+
+const middleware = applyMiddleware(thunk, logger);
 const store = createStore(reducers, initialState, middleware);
 
 ReactDOM.render(
