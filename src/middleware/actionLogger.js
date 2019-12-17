@@ -5,7 +5,7 @@ export default ({ getState }) => next => action => {
   console.group(action.type, ac);
   action_count += 1;
   const ret = next(action);
-  console.log('END  ', ac, getState());
+  console.log(getState());
   console.groupEnd();
   return ret;
 }
